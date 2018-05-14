@@ -1,0 +1,7 @@
+*
+!.gitignore
+!.tmux.conf
+!.atom/
+.atom/*
+!.atom/keymap.cson
+!.atom/snippets.cson

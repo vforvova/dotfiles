@@ -1,0 +1,118 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * https://atom.io/docs/latest/using-atom-basic-customization#customizing-key-bindings
+# * https://atom.io/docs/latest/behind-atom-keymaps-in-depth
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it here:
+# https://github.com/bevry/cson#what-is-cson
+
+# Tree view
+'.platform-darwin:not(.atom-text-editor.vim-mode-plus.insert-mode)':
+  'space f t': 'tree-view:toggle-focus'
+
+'.platform-darwin .tree-view':
+  's': 'tree-view:open-selected-entry-down'
+  'S': 'tree-view:open-selected-entry-up'
+  'v': 'tree-view:open-selected-entry-right'
+  'V': 'tree-view:open-selected-entry-left'
+  'space w l': 'tree-view:unfocus'
+
+# Workspace
+'.platform-darwin atom-workspace':
+  'shift-cmd-T': 'pane:reopen-closed-item'
+
+# Git Diff
+'.github-FilePatchView':
+  'd': 'github:discard-selected-lines'
+  'f': 'github:toggle-patch-selection-mode'
+  'j': 'github:select-next-hunk'
+  'k': 'github:select-previous-hunk'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-cmd-k': 'editor:move-line-up'
+  'ctrl-cmd-j': 'editor:move-line-down'
+  'space c l': 'editor:toggle-line-comments'
+
+  # Panes
+  'space w g r': 'golden-ratio:toggle'
+  'space w h': 'window:focus-pane-on-left'
+  'space w l': 'window:focus-pane-on-right'
+  'space w j': 'window:focus-pane-below'
+  'space w k': 'window:focus-pane-above'
+  'space w s': 'pane:split-down-and-copy-active-item'
+  'space w v': 'pane:split-right-and-copy-active-item'
+
+  # Git
+  'space g s': 'git-plus:status'
+  'space g a': 'git-plus:add'
+  'space g c': 'git-plus:commit'
+  'space g l': 'git-plus:pull'
+  'space g p': 'git-plus:push-set-upstream'
+  'space g d': 'github:view-unstaged-changes-for-current-file'
+  'space g C': 'git-plus:checkout'
+  'space g C o': 'git-plus:checkout-current-file'
+  'space g B': 'git-plus:new-branch'
+  'space g b': 'blame:toggle'
+
+  # Github
+  'space g h r': 'open-on-github:repository'
+  'space g h i': 'open-on-github:issues'
+  'space g h p': 'open-on-github:pulls'
+
+  # Project Plus
+  'space p o': 'project-plus:toggle-project-finder'
+  'space p s': 'project-plus:save'
+  'space p r': 'project-plus:remove'
+  'space p n': 'project-plus:open-next-recently-used-project'
+  'space p p': 'project-plus:open-previous-recently-used-project'
+
+  # Fuzzy finder
+  'space p f': 'fuzzy-finder:toggle-file-finder'
+  'space p b': 'fuzzy-finder:toggle-buffer-finder'
+
+  # Theme switch
+  'space T n': 'theme-switch:next'
+  'space T p': 'theme-switch:prev'
+  'space T l n': 'theme-switch:next-light'
+  'space T l p': 'theme-switch:prev-light'
+  'space T d n': 'theme-switch:next-dark'
+  'space T d p': 'theme-switch:prev-dark'
+
+  # Terminal Plus
+  # 'space t': 'terminal-plus:toggle'
+  # 'space t a': 'terminal-plus:new'
+  # 'space t h': 'terminal-plus:prev'
+  # 'space t l': 'terminal-plus:next'
+  # 'space t q': 'terminal-plus:close'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)[data-grammar~="todo"]':
+  # Tasks
+  'space o a': 'tasks:add'
+  'space o A': 'tasks:add-above'
+  'space o x': 'tasks:complete'
+  'space o X': 'tasks:archive'
+  'space o c': 'tasks:cancel'
+  'space o t': 'tasks:set-timestamp'
+  'space o c t': 'tasks:convert-to-task'
+
+'atom-text-editor.vim-mode-plus.normal-mode':
+  ':': 'ex-mode:open'
+  '!': 'ex-mode:toggle-setting'
