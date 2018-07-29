@@ -1,4 +1,5 @@
 *
+!script.sh
 !.gitignore
 !.tmux.conf
 !.atom/
