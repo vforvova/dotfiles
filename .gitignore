@@ -5,3 +5,4 @@
 .atom/*
 !.atom/keymap.cson
 !.atom/snippets.cson
+!.atom/config.cson

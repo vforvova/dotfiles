@@ -1,0 +1,83 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui":
+      showDiagnosticTraces: true
+      useExperimentalUi: true
+    "atom-ide-terminal":
+      allowTransparency: true
+      fontFamily: "Dank Mono, Monaco"
+      lineHeight: 1
+    use: {}
+  "autocomplete-paths": {}
+  core:
+    debugLSP: true
+    disabledPackages: [
+      "welcome"
+      "timecop"
+      "metrics"
+      "language-gfm"
+      "linter"
+      "elm-format"
+      "json-schema"
+      "one-vibrancy"
+    ]
+    projectHome: "/Users/vforvova/Projects/github"
+    telemetryConsent: "limited"
+    themes: [
+      "city-lights-ui"
+      "cuttlesoft-syntax"
+    ]
+    titleBar: "hidden"
+  "dash-ui":
+    themeColor: "Red"
+  "duotone-light-syntax":
+    color:
+      duo: "#f09043"
+      uno: "#c37e55"
+  editor:
+    fontFamily: "Dank Mono"
+    fontSize: 27
+    preferredLineLength: 120
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "b76a0bf0-f8ae-4b23-913e-ea0aa6ca601b"
+  github: {}
+  "go-plus":
+    config:
+      gopath: "/Users/vforvova/Projects/.go/"
+    panel:
+      currentWidth: "24.296875vw"
+      orientation: "vertical"
+  linter:
+    disabledProviders: [
+      "RuboCop"
+      "reek"
+    ]
+  "linter-rubocop":
+    command: "/Users/vforvova/.rbenv/versions/2.3.4/bin/rubocop"
+  "linter-ui-default":
+    panelHeight: 300
+  "markdown-pdf":
+    syntax: "firewatch-syntax"
+  "nebula-ui":
+    focusMode: false
+  "one-light-ui":
+    fontSize: 10
+    tabSizing: "Maximum"
+  "one-vibrancy":
+    effect: "auto-opaque"
+  pomodoro:
+    playBell: false
+    playTicks: false
+  "svg-preview":
+    openPreviewInPane: "down"
+  tasks:
+    addTimestampOnConvertToTask: true
+  "tree-view": {}
+  "vim-mode-plus": {}
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
