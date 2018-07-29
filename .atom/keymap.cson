@@ -57,8 +57,10 @@
   'space w l': 'window:focus-pane-on-right'
   'space w j': 'window:focus-pane-below'
   'space w k': 'window:focus-pane-above'
-  'space w s': 'pane:split-down-and-copy-active-item'
-  'space w v': 'pane:split-right-and-copy-active-item'
+  'space w s': 'pane:split-down'
+  'space w S': 'pane:split-up'
+  'space w v': 'pane:split-right'
+  'space w V': 'pane:split-left'
 
   # Git
   'space g s': 'git-plus:status'
@@ -87,14 +89,6 @@
   # Fuzzy finder
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p b': 'fuzzy-finder:toggle-buffer-finder'
-
-  # Theme switch
-  'space T n': 'theme-switch:next'
-  'space T p': 'theme-switch:prev'
-  'space T l n': 'theme-switch:next-light'
-  'space T l p': 'theme-switch:prev-light'
-  'space T d n': 'theme-switch:next-dark'
-  'space T d p': 'theme-switch:prev-dark'
 
   # Terminal Plus
   # 'space t': 'terminal-plus:toggle'
