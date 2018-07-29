@@ -9,3 +9,8 @@ ln -s $HOME/dotfiles/.atom/keymap.cson $HOME/.atom/
 
 rm $HOME/.atom/snippets.cson
 ln -s $HOME/dotfiles/.atom/snippets.cson $HOME/.atom/
+
+
+# Tmux
+rm $HOME/.tmux.conf
+ln -s $HOME/dotfiles/.tmux.conf $HOME/
