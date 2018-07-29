@@ -36,7 +36,7 @@
       uno: "#c37e55"
   editor:
     fontFamily: "Dank Mono"
-    fontSize: 27
+    fontSize: 16
     preferredLineLength: 120
     scrollPastEnd: true
     showIndentGuide: true
@@ -57,8 +57,6 @@
       "RuboCop"
       "reek"
     ]
-  "linter-rubocop":
-    command: "/Users/vforvova/.rbenv/versions/2.3.4/bin/rubocop"
   "linter-ui-default":
     panelHeight: 300
   "markdown-pdf":
@@ -70,9 +68,6 @@
     tabSizing: "Maximum"
   "one-vibrancy":
     effect: "auto-opaque"
-  pomodoro:
-    playBell: false
-    playTicks: false
   "svg-preview":
     openPreviewInPane: "down"
   tasks:
