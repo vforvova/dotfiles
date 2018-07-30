@@ -25,13 +25,13 @@
       "atom-ide-signature-help": "default"
       "atom-ide-terminal": "default"
       hyperclick: "default"
-  "autocomplete-paths": {}
   "atom-ternjs":
     useSnippets: true
     useSnippetsAndFunction: true
+  "autocomplete-paths": {}
   "city-lights-ui":
-    tabSize: "small"
     style: "Light"
+    tabSize: "small"
   core:
     debugLSP: true
     disabledPackages: [
@@ -51,6 +51,7 @@
       "cuttlesoft-syntax"
     ]
     titleBar: "hidden"
+  "cuttlesoft-syntax": {}
   "dash-ui":
     themeColor: "Red"
   editor:
@@ -75,7 +76,7 @@
       "reek"
     ]
   "linter-ui-default":
-    panelHeight: 300
+    panelHeight: 132
   "markdown-pdf":
     syntax: "firewatch-syntax"
   "nebula-ui":
