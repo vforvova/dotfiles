@@ -7,8 +7,31 @@
       allowTransparency: true
       fontFamily: "Dank Mono, Monaco"
       lineHeight: 1
-    use: {}
+    "debugger-exceptionBreakpointsCollapsed": true
+    use:
+      "atom-ide-busy-signal": "default"
+      "atom-ide-code-actions": "default"
+      "atom-ide-code-format": "default"
+      "atom-ide-code-highlight": "default"
+      "atom-ide-console": "default"
+      "atom-ide-datatip": "default"
+      "atom-ide-debugger": "default"
+      "atom-ide-definitions": "default"
+      "atom-ide-diagnostics": "default"
+      "atom-ide-diagnostics-ui": "default"
+      "atom-ide-find-references": "default"
+      "atom-ide-global": "default"
+      "atom-ide-outline-view": "default"
+      "atom-ide-signature-help": "default"
+      "atom-ide-terminal": "default"
+      hyperclick: "default"
   "autocomplete-paths": {}
+  "atom-ternjs":
+    useSnippets: true
+    useSnippetsAndFunction: true
+  "city-lights-ui":
+    tabSize: "small"
+    style: "Light"
   core:
     debugLSP: true
     disabledPackages: [
@@ -22,18 +45,14 @@
       "one-vibrancy"
     ]
     projectHome: "/Users/vforvova/Projects/github"
-    telemetryConsent: "limited"
+    telemetryConsent: "no"
     themes: [
-      "city-lights-ui"
+      "one-light-ui"
       "cuttlesoft-syntax"
     ]
     titleBar: "hidden"
   "dash-ui":
     themeColor: "Red"
-  "duotone-light-syntax":
-    color:
-      duo: "#f09043"
-      uno: "#c37e55"
   editor:
     fontFamily: "Dank Mono"
     fontSize: 16
@@ -41,8 +60,6 @@
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
-    softWrapAtPreferredLineLength: true
-    tabType: "soft"
   "exception-reporting":
     userId: "b76a0bf0-f8ae-4b23-913e-ea0aa6ca601b"
   github: {}
@@ -73,6 +90,11 @@
   tasks:
     addTimestampOnConvertToTask: true
   "tree-view": {}
-  "vim-mode-plus": {}
+  "vim-mode-plus":
+    automaticallyEscapeInsertModeOnActivePaneItemChange: true
+    charactersToAddSpaceOnSurround: [
+      "{"
+    ]
+    keymapYToYankToLastCharacterOfLine: true
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
