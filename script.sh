@@ -1,5 +1,16 @@
 #!/bin/usr/bash
 
+# Tmux
+rm $HOME/.tmux.conf
+ln -s $HOME/dotfiles/.tmux.conf $HOME/
+
+
+# Git
+rm $HOME/.gitignore
+ln -s $HOME/dotfiles/.gitignore $HOME/
+git config --global core.excludesfile $HOME/.gitignore
+
+
 # Atom
 
 ## Configurations
@@ -15,7 +26,3 @@ ln -s $HOME/dotfiles/.atom/snippets.cson $HOME/.atom/
 ## Packages
 apm install --packages-file .atom-package-list
 
-
-# Tmux
-rm $HOME/.tmux.conf
-ln -s $HOME/dotfiles/.tmux.conf $HOME/
