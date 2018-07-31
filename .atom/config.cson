@@ -51,7 +51,8 @@
       "cuttlesoft-syntax"
     ]
     titleBar: "hidden"
-  "cuttlesoft-syntax": {}
+  "cuttlesoft-syntax":
+    style: "Light"
   "dash-ui":
     themeColor: "Red"
   editor:
