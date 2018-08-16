@@ -57,7 +57,6 @@
     themeColor: "Red"
   editor:
     fontFamily: "Dank Mono"
-    fontSize: 16
     preferredLineLength: 120
     scrollPastEnd: true
     showIndentGuide: true

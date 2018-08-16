@@ -1,7 +1,4 @@
 # Tree view
-'.platform-darwin:not(.atom-text-editor.vim-mode-plus.insert-mode)':
-  'space f t': 'tree-view:toggle-focus'
-
 '.platform-darwin .tree-view':
   's': 'tree-view:open-selected-entry-down'
   'S': 'tree-view:open-selected-entry-up'
@@ -24,6 +21,7 @@
   'ctrl-cmd-k': 'editor:move-line-up'
   'ctrl-cmd-j': 'editor:move-line-down'
   'space c l': 'editor:toggle-line-comments'
+  'space f t': 'tree-view:toggle-focus'
 
   # Panes
   'space w g r': 'golden-ratio:toggle'
@@ -63,13 +61,6 @@
   # Fuzzy finder
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p b': 'fuzzy-finder:toggle-buffer-finder'
-
-  # Terminal Plus
-  # 'space t': 'terminal-plus:toggle'
-  # 'space t a': 'terminal-plus:new'
-  # 'space t h': 'terminal-plus:prev'
-  # 'space t l': 'terminal-plus:next'
-  # 'space t q': 'terminal-plus:close'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)[data-grammar~="todo"]':
   # Tasks
