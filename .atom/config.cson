@@ -1,7 +1,7 @@
 "*":
   "atom-ide-ui":
     "atom-ide-diagnostics-ui":
-      showDiagnosticTraces: true
+      autoVisibility: true
       useExperimentalUi: true
     "atom-ide-terminal":
       allowTransparency: true
@@ -39,16 +39,16 @@
       "timecop"
       "metrics"
       "language-gfm"
-      "linter"
       "elm-format"
       "json-schema"
       "one-vibrancy"
+      "polymer-ide"
     ]
     projectHome: "/Users/vforvova/Projects/github"
     telemetryConsent: "no"
     themes: [
       "one-light-ui"
-      "cuttlesoft-syntax"
+      "soft-era-syntax"
     ]
     titleBar: "hidden"
   "cuttlesoft-syntax":
@@ -67,8 +67,10 @@
   "go-plus":
     config:
       gopath: "/Users/vforvova/Projects/.go/"
+    lint: {}
     panel:
       currentWidth: "24.296875vw"
+      displayMode: "closed"
       orientation: "vertical"
   linter:
     disabledProviders: [
@@ -76,7 +78,9 @@
       "reek"
     ]
   "linter-ui-default":
+    alwaysTakeMinimumSpace: true
     panelHeight: 132
+    showProviderName: true
   "markdown-pdf":
     syntax: "firewatch-syntax"
   "nebula-ui":
