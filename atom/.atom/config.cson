@@ -30,8 +30,8 @@
     useSnippetsAndFunction: true
   "autocomplete-paths": {}
   "city-lights-ui":
+    fontSize: 12
     style: "Light"
-    tabSize: "small"
   core:
     debugLSP: true
     disabledPackages: [
@@ -43,16 +43,16 @@
       "json-schema"
       "one-vibrancy"
       "polymer-ide"
+      "linter"
     ]
     projectHome: "/Users/vforvova/Projects/github"
     telemetryConsent: "no"
     themes: [
-      "one-light-ui"
-      "soft-era-syntax"
+      "city-lights-ui"
+      "cuttlesoft-syntax"
     ]
     titleBar: "hidden"
-  "cuttlesoft-syntax":
-    style: "Light"
+  "cuttlesoft-syntax": {}
   "dash-ui":
     themeColor: "Red"
   editor:
