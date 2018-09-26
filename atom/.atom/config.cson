@@ -1,105 +1,11 @@
 "*":
-  "atom-ide-ui":
-    "atom-ide-diagnostics-ui":
-      autoVisibility: true
-      useExperimentalUi: true
-    "atom-ide-terminal":
-      allowTransparency: true
-      fontFamily: "Dank Mono, Monaco"
-      lineHeight: 1
-    "debugger-exceptionBreakpointsCollapsed": true
-    use:
-      "atom-ide-busy-signal": "default"
-      "atom-ide-code-actions": "default"
-      "atom-ide-code-format": "default"
-      "atom-ide-code-highlight": "default"
-      "atom-ide-console": "default"
-      "atom-ide-datatip": "default"
-      "atom-ide-debugger": "default"
-      "atom-ide-definitions": "default"
-      "atom-ide-diagnostics": "default"
-      "atom-ide-diagnostics-ui": "default"
-      "atom-ide-find-references": "default"
-      "atom-ide-global": "default"
-      "atom-ide-outline-view": "default"
-      "atom-ide-signature-help": "default"
-      "atom-ide-terminal": "default"
-      hyperclick: "default"
-  "atom-ternjs":
-    useSnippets: true
-    useSnippetsAndFunction: true
-  "autocomplete-paths": {}
-  "city-lights-ui":
-    fontSize: 12
-    style: "Light"
   core:
-    debugLSP: true
     disabledPackages: [
-      "welcome"
-      "timecop"
-      "metrics"
-      "language-gfm"
-      "elm-format"
-      "json-schema"
-      "one-vibrancy"
-      "polymer-ide"
       "linter"
     ]
-    projectHome: "/Users/vforvova/Projects/github"
-    telemetryConsent: "no"
-    themes: [
-      "city-lights-ui"
-      "cuttlesoft-syntax"
-    ]
+    telemetryConsent: "limited"
     titleBar: "hidden"
-  "cuttlesoft-syntax": {}
-  "dash-ui":
-    themeColor: "Red"
-  editor:
-    fontFamily: "Dank Mono"
-    preferredLineLength: 120
-    scrollPastEnd: true
-    showIndentGuide: true
-    showInvisibles: true
   "exception-reporting":
-    userId: "b76a0bf0-f8ae-4b23-913e-ea0aa6ca601b"
-  github: {}
-  "go-plus":
-    config:
-      gopath: "/Users/vforvova/Projects/.go/"
-    lint: {}
-    panel:
-      currentWidth: "24.296875vw"
-      displayMode: "closed"
-      orientation: "vertical"
-  linter:
-    disabledProviders: [
-      "RuboCop"
-      "reek"
-    ]
-  "linter-ui-default":
-    alwaysTakeMinimumSpace: true
-    panelHeight: 132
-    showProviderName: true
-  "markdown-pdf":
-    syntax: "firewatch-syntax"
-  "nebula-ui":
-    focusMode: false
-  "one-light-ui":
-    fontSize: 10
-    tabSizing: "Maximum"
-  "one-vibrancy":
-    effect: "auto-opaque"
-  "svg-preview":
-    openPreviewInPane: "down"
-  tasks:
-    addTimestampOnConvertToTask: true
-  "tree-view": {}
-  "vim-mode-plus":
-    automaticallyEscapeInsertModeOnActivePaneItemChange: true
-    charactersToAddSpaceOnSurround: [
-      "{"
-    ]
-    keymapYToYankToLastCharacterOfLine: true
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
+    userId: "16d49337-1766-435c-b7a6-5ec8aa0aa82f"
+  welcome:
+    showOnStartup: false
