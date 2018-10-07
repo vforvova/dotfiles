@@ -1,11 +1,34 @@
 "*":
+  "city-lights-ui":
+    fontSize: 12
   core:
     disabledPackages: [
       "linter"
+      "ide-go"
+      "linter-ui-default"
     ]
     telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "cuttlesoft-syntax"
+    ]
     titleBar: "hidden"
+  "cuttlesoft-syntax":
+    style: "Light"
+  editor:
+    fontFamily: "Dank Mono, Monaco"
+    scrollPastEnd: true
   "exception-reporting":
     userId: "16d49337-1766-435c-b7a6-5ec8aa0aa82f"
+  "linter-ui-default":
+    panelHeight: 132
+  "seti-ui":
+    compactView: true
+    hideDocumentTitle: true
+    hideProjectTab: true
+    hideTitleBar: true
   welcome:
     showOnStartup: false
+".source.yaml":
+  editor:
+    autoIndentOnPaste: false
