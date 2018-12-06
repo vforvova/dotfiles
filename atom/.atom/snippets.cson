@@ -21,6 +21,10 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
 '.source.javascript':
-  'function':
+  'Function':
     'prefix': 'fn'
     'body': 'function ${1:methodName} (${2:arguments}) {\n\t${0:// body...}\n}'
+
+  'Describe':
+    'prefix': 'desc'
+    'body': 'describe(\'${0:description}\', () => {\n\t${1:// body}\n})'
