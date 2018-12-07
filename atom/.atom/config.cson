@@ -24,6 +24,7 @@
     titleBar: "hidden"
     useTreeSitterParsers: true
   "cuttlesoft-syntax": {}
+  "dark-mode": {}
   editor:
     fontFamily: "Dank Mono, Monaco"
     scrollPastEnd: true
