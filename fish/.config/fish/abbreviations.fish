@@ -11,4 +11,3 @@ abbr -a gres git reset
 abbr -a gs git status
 abbr -a gb git branch
 abbr -a gpr git pull-request -o
-
