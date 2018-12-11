@@ -18,8 +18,8 @@
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "city-lights-ui"
-      "cuttlesoft-syntax"
+      "one-dark-ui"
+      "firewatch-syntax"
     ]
     titleBar: "hidden"
     useTreeSitterParsers: true
@@ -31,6 +31,11 @@
     showInvisibles: true
   "exception-reporting":
     userId: "16d49337-1766-435c-b7a6-5ec8aa0aa82f"
+  "go-plus":
+    format:
+      tool: "gofmt"
+    panel:
+      displayMode: "closed"
   "golden-ratio": {}
   "linter-ui-default":
     panelHeight: 132
@@ -39,12 +44,13 @@
     hideSingleTab: false
   "one-light-ui": {}
   "seti-syntax":
-    themeColor: "Purple"
+    themeColor: "Pink"
   "seti-ui":
     compactView: true
     hideDocumentTitle: true
     hideProjectTab: true
     hideTitleBar: true
+    themeColor: "Pink"
   "tree-view":
     hideVcsIgnoredFiles: true
   "vim-mode-plus":
