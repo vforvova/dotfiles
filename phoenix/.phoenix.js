@@ -15,7 +15,7 @@ const CTRL = 'ctrl';
 const ALT = 'alt';
 const MASH = [CTRL, ALT, CMD];
 
-const keyCombo = [];
+const keyCombo = []; // might be helpful to detect combos in the future
 
 class Rectangle {
   constructor({ x, y, width, height }) {
