@@ -2,29 +2,44 @@
   "atom-ide-ui":
     "atom-ide-code-format":
       formatOnSave: true
+    "atom-ide-diagnostics-ui":
+      showDirectoryColumn: true
     use:
       "atom-ide-terminal": "never"
   "atom-ternjs":
     useSnippets: true
+  "autocomplete-paths":
+    enableHtmlSupport: true
   "city-lights-ui":
     fontSize: 12
+    showTabsInTreeView: true
   core:
     disabledPackages: [
       "linter"
       "linter-ui-default"
       "ide-yaml"
       "ide-go"
+      "open-on-github"
+      "about"
+      "bookmarks"
+    ]
+    followSymlinks: false
+    packagesWithKeymapsDisabled: [
+      "go-to-line"
+      "open-on-github"
     ]
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "firewatch-syntax"
+      "nebula-ui"
+      "nebula-syntax"
     ]
     titleBar: "hidden"
-    useTreeSitterParsers: true
   "cuttlesoft-syntax": {}
   "dark-mode": {}
+  "dash-ui":
+    iconsEnabled: false
+    themeColor: "Blue"
   editor:
     fontFamily: "Dank Mono, Fantasque Sans Mono"
     scrollPastEnd: true
@@ -37,12 +52,18 @@
     panel:
       displayMode: "closed"
   "golden-ratio": {}
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
   "linter-ui-default":
     panelHeight: 132
   "nebula-ui":
     focusMode: false
-    hideSingleTab: false
-  "one-light-ui": {}
+  "one-dark-ui":
+    hideDockButtons: true
+    stickyHeaders: true
+  "one-light-ui":
+    hideDockButtons: true
+    stickyHeaders: true
   "seti-syntax":
     themeColor: "Pink"
   "seti-ui":
@@ -51,6 +72,11 @@
     hideProjectTab: true
     hideTitleBar: true
     themeColor: "Pink"
+  "spell-check":
+    locales: [
+      "en-US"
+    ]
+  tabs: {}
   "tree-view":
     hideVcsIgnoredFiles: true
   "vim-mode-plus":

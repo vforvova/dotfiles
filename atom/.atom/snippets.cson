@@ -20,11 +20,19 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
-'.source.javascript':
+'.source.js':
   'Function':
     'prefix': 'fn'
-    'body': 'function ${1:methodName} (${2:arguments}) {\n\t${0:// body...}\n}'
+    'body': 'function ${1:methodName} (${2}) {\n\t${3:// body...}\n}${4:;}'
 
   'Describe':
     'prefix': 'desc'
-    'body': 'describe(\'${0:description}\', () => {\n\t${1:// body}\n})'
+    'body': 'describe(\'${1:description}\', () => {\n\t${2:// body}\n})${3:;}'
+
+  'Arrow Function multiline without return (common to React)':
+    'prefix': 'afr'
+    'body': '(${2}) => (\n\t${1}\n)${3:;}'
+
+  'JSX Tag':
+    'prefix': 'tag'
+    'body': '<${1:TagName}${3}>${2}</${1:TagName}>'
