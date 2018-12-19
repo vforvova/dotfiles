@@ -29,6 +29,12 @@ To be described...
 To be described...
 
 
+## Alacritty
+**Not in use** - doesn't support ligatures
+
+To be described...
+
+
 ## Phoenix.js
 **In use**
 
@@ -39,3 +45,11 @@ To be described...
 **In use**
 
 To be described...
+
+
+## Vim
+
+**In use**
+
+To be described...
+
