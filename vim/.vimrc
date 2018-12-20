@@ -21,14 +21,16 @@ endif
 " :PlugSnapshot [output path]  - generate script to restore current snapshot
 " :PlugClean(!)                - (force) remove unused plugins
 
+
 "
 " Plugin list
 "
 call plug#begin()
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'liuchengxu/space-vim-dark'
+Plug 'sheerun/vim-polyglot'
+Plug 'sickill/vim-monokai'
 
 call plug#end()
 
@@ -42,18 +44,11 @@ let mapleader = "\<Space>"
 " Prevent space from move in Normal and Visual mode
 noremap <SPACE> <Nop>
 
+
 "
-" Space Vim Dark color scheme
+" Color scheme
 "
-colorscheme space-vim-dark
-
-" Make background transparent
-hi Normal     ctermbg=NONE guibg=NONE
-hi LineNr     ctermbg=NONE guibg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
-
-hi Comment guifg=#5C6370 ctermfg=59 " Makes comments gray
-
+colorscheme monokai
 
 "
 " NERDTree
