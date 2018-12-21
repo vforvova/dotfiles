@@ -31,6 +31,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'sickill/vim-monokai'
+Plug 'garbas/vim-snipmate'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
 
 call plug#end()
 
@@ -44,6 +47,37 @@ let mapleader = "\<Space>"
 " Prevent space from move in Normal and Visual mode
 noremap <SPACE> <Nop>
 
+filetype on
+filetype plugin on
+filetype indent on
+
+set modifiable
+set smartindent
+set autoindent
+
+" Switch between buffers without saving
+set hidden
+
+" Enable line numbers
+set number
+
+" Highlight search
+set hlsearch
+
+" Enable folding
+set foldenable
+
+" Show ruler
+set ruler
+
+" Source the .vimrc after saving it
+if has("autocmd")
+ augroup myvimrchooks
+  au!
+  autocmd bufwritepost .vimrc source ~/.vimrc
+ augroup END
+endif
+
 
 "
 " Color scheme
@@ -55,4 +89,8 @@ colorscheme monokai
 "
 autocmd vimenter * NERDTree
 map <leader>pt :NERDTreeToggle<CR>
+
+" Close NERDTree automatically
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 

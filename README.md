@@ -20,7 +20,10 @@
 ## Fish shell
 **In use**
 
-To be described...
+1. Install Fish shell using `brew`.
+   ```bash
+     brew install fish
+   ```
 
 
 ## Kitty terminal
