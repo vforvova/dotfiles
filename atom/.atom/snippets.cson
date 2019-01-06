@@ -35,4 +35,8 @@
 
   'JSX Tag':
     'prefix': 'tag'
-    'body': '<${1:TagName}${3}>${2}</${1:TagName}>'
+    'body': '<${1:TagName}${2}>${3}</${1:TagName}>'
+
+  'JSX Tag without content':
+    'prefix': 'tag/'
+    'body': '<${1:TagName} ${2}/>'

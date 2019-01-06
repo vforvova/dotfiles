@@ -47,6 +47,10 @@
   "exception-reporting":
     userId: "16d49337-1766-435c-b7a6-5ec8aa0aa82f"
   "go-plus":
+    disabledBundledPackages: [
+      "go-signature-statusbar"
+      "go-debug"
+    ]
     format:
       tool: "gofmt"
     panel:
@@ -77,8 +81,7 @@
       "en-US"
     ]
   tabs: {}
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "vim-mode-plus":
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnFullScrollMotionDuration: 200
