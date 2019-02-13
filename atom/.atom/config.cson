@@ -18,28 +18,29 @@
       "linter"
       "linter-ui-default"
       "ide-yaml"
-      "ide-go"
       "open-on-github"
       "about"
       "bookmarks"
+      "open-on-github"
     ]
     followSymlinks: false
     packagesWithKeymapsDisabled: [
       "go-to-line"
-      "open-on-github"
     ]
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "nebula-ui"
-      "nebula-syntax"
+      "one-dark-ui"
+      "newton-dark-syntax"
     ]
     titleBar: "hidden"
   "cuttlesoft-syntax": {}
-  "dark-mode": {}
-  "dash-ui":
-    iconsEnabled: false
-    themeColor: "Blue"
+  "dark-mode":
+    autoMode: false
+    darkProfile: "nebula-ui nebula-syntax"
+    lightProfile: "one-light-ui soft-era"
+    sunSensor: false
+    systemThemeSensor: false
   editor:
     fontFamily: "Dank Mono, Fantasque Sans Mono"
     scrollPastEnd: true
@@ -47,13 +48,24 @@
   "exception-reporting":
     userId: "16d49337-1766-435c-b7a6-5ec8aa0aa82f"
   "go-plus":
+    autocomplete: {}
+    config:
+      gopath: "/Users/vladimirs/Projects/.go"
+    disabledBundledPackages: [
+      "go-debug"
+      "go-signature-statusbar"
+    ]
     format:
       tool: "gofmt"
+    navigator:
+      mode: "guru"
     panel:
       displayMode: "closed"
+      fontSize: "1em"
+    test:
+      coverageHighlightMode: "covered-and-uncovered"
+      runTestsWithCoverage: false
   "golden-ratio": {}
-  "linter-jshint":
-    disableWhenNoJshintrcFileInPath: true
   "linter-ui-default":
     panelHeight: 132
   "nebula-ui":
@@ -61,22 +73,19 @@
   "one-dark-ui":
     hideDockButtons: true
     stickyHeaders: true
-  "one-light-ui":
-    hideDockButtons: true
-    stickyHeaders: true
-  "seti-syntax":
-    themeColor: "Pink"
+  "one-light-ui": {}
+  "seti-syntax": {}
   "seti-ui":
     compactView: true
     hideDocumentTitle: true
     hideProjectTab: true
     hideTitleBar: true
-    themeColor: "Pink"
   "spell-check":
     locales: [
       "en-US"
     ]
-  tabs: {}
+  tabs:
+    alwaysShowTabBar: false
   "tree-view":
     hideVcsIgnoredFiles: true
   "vim-mode-plus":
@@ -90,6 +99,14 @@
   "vim-mode-plus-move-selected-text": {}
   welcome:
     showOnStartup: false
+".go.source":
+  editor:
+    showIndentGuide: true
+    showInvisibles: false
+".gotemplate.source":
+  editor:
+    showIndentGuide: true
+    showInvisibles: false
 ".source.yaml":
   editor:
     autoIndentOnPaste: false
