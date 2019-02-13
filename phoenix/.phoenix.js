@@ -32,9 +32,12 @@ Key.on('i', MASH, () => {
 
 Key.on('h', MASH, () => {
   const win = Window.focused();
+  const currentScreen = win.screen();
+  const currentSpace = currentScreen.currentSpace();
   const { width, height } = win.screen().flippedVisibleFrame();
   const halfWidth = width / 2;
   win.setFrame(new Rectangle({ height, width: halfWidth }));
+	//currentSpace.addWindows([win]);
 });
 
 Key.on('l', MASH, () => {

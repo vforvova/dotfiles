@@ -52,8 +52,8 @@
     config:
       gopath: "/Users/vladimirs/Projects/.go"
     disabledBundledPackages: [
-      "go-debug"
       "go-signature-statusbar"
+      "go-debug"
     ]
     format:
       tool: "gofmt"
