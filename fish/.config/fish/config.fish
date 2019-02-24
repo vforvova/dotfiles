@@ -8,6 +8,12 @@ if type -q n
   add_to_path $N_PREFIX/bin
 end
 
+# Node
+if type -q node
+  set -x NPM_PACKAGES $HOME/.npm-packages
+  add_to_path $NODE_PACKAGES/bin
+end
+
 # Golang
 if type -q go
   set -x GOPATH $HOME/Projects/.go
