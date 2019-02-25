@@ -17,46 +17,45 @@ const MASH = [CTRL, ALT, CMD];
 
 const keyCombo = []; // might be helpful to detect combos in the future
 
-class Rectangle {
-  constructor({ x, y, width, height }) {
-    this.x = x || 0;
-    this.y = y || 0;
-    this.width = width || 0;
-    this.height = height || 0;
-  }
+function setFrame(x, y, width, height, window = Window.focused()) {
+  const screen = window.screen();
+  const frame = screen.flippedVisibleFrame();
+  window.setFrame({
+    x: frame.x + (frame.width * x),
+    y: frame.y + (frame.height * y),
+    width: frame.width * width,
+    height: frame.height * height,
+  });
 }
 
-Key.on('i', MASH, () => {
-  Window.focused().maximise();
-});
-
 Key.on('h', MASH, () => {
-  const win = Window.focused();
-  const currentScreen = win.screen();
-  const currentSpace = currentScreen.currentSpace();
-  const { width, height } = win.screen().flippedVisibleFrame();
-  const halfWidth = width / 2;
-  win.setFrame(new Rectangle({ height, width: halfWidth }));
-	//currentSpace.addWindows([win]);
+  setFrame(0, 0, 1/2, 1);
 });
 
 Key.on('l', MASH, () => {
-  const win = Window.focused();
-  const { width, height } = win.screen().flippedVisibleFrame();
-  const halfWidth = width / 2;
-  win.setFrame(new Rectangle({ height, x: halfWidth, width: halfWidth }));
+  setFrame(1/2, 0, 1/2, 1);
 });
 
 Key.on('j', MASH, () => {
-  const win = Window.focused();
-  const { width, height } = win.screen().flippedFrame();
-  const halfHeight = height / 2;
-  win.setFrame(new Rectangle({ height: halfHeight, y: halfHeight, width }));
+  setFrame(0, 1/2, 1, 1/2);
 });
 
 Key.on('k', MASH, () => {
-  const win = Window.focused();
-  const { width, height } = win.screen().flippedVisibleFrame();
-  const halfHeight = height / 2;
-  win.setFrame(new Rectangle({ height: halfHeight, width }));
+  setFrame(0, 0, 1, 1/2);
+});
+
+Key.on('u', MASH, () => {
+  setFrame(0, 0, 1/2, 1/2);
+});
+
+Key.on('i', MASH, () => {
+  setFrame(0, 1/2, 1/2, 1/2);
+});
+
+Key.on('o', MASH, () => {
+  setFrame(1/2, 0, 1/2, 1/2);
+});
+
+Key.on('p', MASH, () => {
+  setFrame(1/2, 1/2, 1/2, 1/2);
 });
