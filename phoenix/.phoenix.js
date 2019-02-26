@@ -13,6 +13,7 @@ let testMode = false;
 const CMD = 'cmd';
 const CTRL = 'ctrl';
 const ALT = 'alt';
+const SHIFT = 'shift';
 const MASH = [CTRL, ALT, CMD];
 
 const keyCombo = []; // might be helpful to detect combos in the future
@@ -28,34 +29,21 @@ function setFrame(x, y, width, height, window = Window.focused()) {
   });
 }
 
-Key.on('h', MASH, () => {
-  setFrame(0, 0, 1/2, 1);
-});
 
-Key.on('l', MASH, () => {
-  setFrame(1/2, 0, 1/2, 1);
-});
+Key.on('w', [CMD, CTRL], () => {
+  Phoenix.log('ctrl+shift+w');
 
-Key.on('j', MASH, () => {
-  setFrame(0, 1/2, 1, 1/2);
-});
+  const positioning = [
+    Key.on('f', [], () => { Window.focused().maximise() }),
+    Key.on('h', [], () => { setFrame(0, 0, 1/2, 1) }),
+    Key.on('l', [], () => { setFrame(1/2, 0, 1/2, 1) }),
+    Key.on('j', [], () => { setFrame(0, 1/2, 1, 1/2) }),
+    Key.on('k', [], () => { setFrame(0, 0, 1, 1/2) }),
+    Key.on('q', [], () => { setFrame(0, 0, 1/2, 1/2) }),
+    Key.on('a', [], () => { setFrame(0, 1/2, 1/2, 1/2) }),
+    Key.on('w', [], () => { setFrame(1/2, 0, 1/2, 1/2) }),
+    Key.on('s', [], () => { setFrame(1/2, 1/2, 1/2, 1/2) }),
+  ];
 
-Key.on('k', MASH, () => {
-  setFrame(0, 0, 1, 1/2);
-});
-
-Key.on('u', MASH, () => {
-  setFrame(0, 0, 1/2, 1/2);
-});
-
-Key.on('i', MASH, () => {
-  setFrame(0, 1/2, 1/2, 1/2);
-});
-
-Key.on('o', MASH, () => {
-  setFrame(1/2, 0, 1/2, 1/2);
-});
-
-Key.on('p', MASH, () => {
-  setFrame(1/2, 1/2, 1/2, 1/2);
+  setTimeout(() => { positioning.forEach(Key.off) }, 500);
 });
