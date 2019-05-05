@@ -5,6 +5,7 @@
     "atom-ide-diagnostics-ui":
       showDirectoryColumn: true
     use:
+      "atom-ide-diagnostics-ui": "never"
       "atom-ide-terminal": "never"
   "atom-ternjs":
     useSnippets: true
@@ -15,13 +16,12 @@
     showTabsInTreeView: true
   core:
     disabledPackages: [
-      "linter"
-      "linter-ui-default"
       "ide-yaml"
       "open-on-github"
       "about"
       "bookmarks"
       "open-on-github"
+      "nyan-indent"
     ]
     followSymlinks: false
     packagesWithKeymapsDisabled: [
@@ -30,11 +30,12 @@
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "newton-dark-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     titleBar: "hidden"
-  "cuttlesoft-syntax": {}
+  "cuttlesoft-syntax":
+    style: "Light"
   "dark-mode":
     autoMode: false
     darkProfile: "nebula-ui nebula-syntax"
@@ -66,8 +67,12 @@
       coverageHighlightMode: "covered-and-uncovered"
       runTestsWithCoverage: false
   "golden-ratio": {}
+  "linter-eslint":
+    autofix: {}
   "linter-ui-default":
-    panelHeight: 132
+    panelHeight: 300
+  "linter-xo":
+    fixOnSave: true
   "nebula-ui":
     focusMode: false
   "one-dark-ui":
@@ -86,8 +91,7 @@
     ]
   tabs:
     alwaysShowTabBar: false
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "vim-mode-plus":
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnFullScrollMotionDuration: 200
