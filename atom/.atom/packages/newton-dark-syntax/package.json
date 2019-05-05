@@ -1,0 +1,41 @@
+{
+  "_from": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball",
+  "_id": "newton-dark-syntax@1.1.9",
+  "_inBundle": false,
+  "_integrity": "sha512-I0UXqCnTrJZEtiAL/mbymBW6k6rkWz595Z8A8JGZuIVpyJIRJ37r4MYcXkvepNUjbivboQxxRxM551T7D43JpA==",
+  "_location": "/newton-dark-syntax",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball",
+  "_shasum": "903a59814c043ddc113013065c6524fa24973053",
+  "_spec": "https://www.atom.io/api/packages/newton-dark-syntax/versions/1.1.9/tarball",
+  "_where": "/private/var/folders/hy/nmjqtn4923x59727rxn7vv9w0000gp/T/apm-install-dir-119010-2717-n8hnhn.5pc7d",
+  "bugs": {
+    "url": "https://github.com/jasesmith/newton-dark-syntax/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Syntax theme to go along with the Newton-Dark-UI theme.",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/jasesmith/newton-dark-syntax#readme",
+  "license": "MIT",
+  "name": "newton-dark-syntax",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasesmith/newton-dark-syntax.git"
+  },
+  "theme": "syntax",
+  "version": "1.1.9"
+}

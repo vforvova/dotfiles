@@ -1,0 +1,112 @@
+// Nebula UI / VARIABLES
+// ---------------------
+// Stuff that changes and stuff.
+
+// Text Colors
+@text-color:           hsl(0,0,100%);
+@text-color-highlight: hsl(223,3,96%);
+@text-color-subtle:    lighten(desaturate(@base-background-color, 10%), 30%);
+@text-color-selected:  lighten(desaturate(@base-background-color, 10%), 80%);
+
+@text-color-info:    @blue;
+@text-color-success: desaturate(@green, 10%);
+@text-color-warning: @orange;
+@text-color-error:   @red;
+
+// Background colors
+@background-color-info:    @blue;
+@background-color-success: darken(@green, 22%);
+@background-color-warning: darken(@orange, 22%);
+@background-color-error:   hsl(346,100%,50%);
+
+@background-color-highlight: lighten(@base-background-color, 5%);
+@background-color-selected:  fade(@text-color-subtle, 20%);
+@app-background-color:  	 @base-background-color;
+
+// Base colors
+@base-background-color: hsl(218,19%,14%);
+@base-border-color:     lighten(@base-background-color, 5%);
+
+// Component colors
+@pane-item-background-color: transparent;
+@pane-item-border-color:     transparent;
+
+@input-background-color: @app-background-color;
+@input-border-color:     @base-border-color;
+
+@tool-panel-background-color: @base-background-color;
+@tool-panel-border-color:     @base-border-color;
+
+@inset-panel-background-color: lighten(@base-background-color, 4%);
+@inset-panel-border-color:     @base-border-color;
+
+@panel-heading-background-color: lighten(@base-background-color, 4%);
+@panel-heading-border-color:     @base-border-color;
+
+@overlay-background-color: lighten(@base-background-color, 5%);
+@overlay-border-color:     @base-border-color;
+
+// Button colors
+@button-background-color:          lighten(@base-background-color, 7%);
+@button-background-color-hover:    lighten(@button-background-color, 3%);
+@button-background-color-selected: @button-background-color-hover;
+// @button-border-color:           @button-background-color;
+@button-border-color-hover:        lighten(@button-background-color, 5%);
+
+// Tab colors
+@tab-bar-background-color:    @base-background-color;
+@tab-bar-border-color:        @base-border-color;
+@tab-background-color:        @tab-bar-background-color;
+@tab-background-color-active: lighten(@tab-bar-background-color, 10%);
+@tab-border-color:            @base-border-color;
+
+// Tree view colors
+@tree-view-background-color: @base-background-color;
+@tree-view-border-color:     @base-border-color;
+
+// Scrollbar colors
+@scrollbar-color: 			 @background-color-selected;
+@scrollbar-background-color: @base-background-color;
+
+// Site colors
+@ui-site-color-1: @blue; 	  	 // blue
+@ui-site-color-2: @cyan; 	 	 // cyan
+@ui-site-color-3: @orange; 	  	 // orange
+@ui-site-color-4: @red;      	 // pink
+@ui-site-color-5: @light-orange; // yellow
+
+// Sizes
+@font-size: 	  12px;
+@input-font-size: 14px;
+
+@disclosure-arrow-size: 12px;
+
+@component-padding: 	 10px;
+@component-icon-padding: 5px;
+@component-icon-size: 	 16px;
+@component-line-height:  25px;
+
+@tab-height: 30px;
+
+// Misc
+@component-border-radius: 2px;
+@font-family:
+	'.SFNSText-Regular',
+	'BlinkMacSystemFont',
+	'Lucida Grande',
+	'Segoe UI',
+	Ubuntu,
+	Cantarell,
+	sans-serif;
+
+// Nebula Colors
+
+@status-bar-background-color: darken(@base-background-color, 2%);
+
+@red: 			#F04180;
+@orange:		#F5CD73;
+@light-orange:	lighten(@orange, 10%);
+@green: 		#AAED37;
+@cyan: 			#23DEC5;
+@blue: 			darken(#7AC3FF,10%);
+@purple: 		#B57EED;

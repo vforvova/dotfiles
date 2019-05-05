@@ -1,0 +1,38 @@
+// Nebula UI / Status Bar
+// -------------------
+// Located at the bottom.
+// Displays information about the current editor.
+// Overrides: atom/status-bar
+
+.status-bar {
+	height: 32px;
+	font-size: @font-size;
+	background-color: @status-bar-background-color;
+	& > div {
+		padding-top: 4px;
+		.transition(opacity, -webkit-filter;);
+	}
+
+	a {
+		color: @text-color-subtle;
+		text-decoration: none;
+		.transition(color;);
+
+		&:hover {
+			color: @text-color-selected;
+		}
+	}
+	atom-workspace[theme-nebula-ui-focusmode=enabled] & {
+		& > div {
+			opacity: 0.6;
+			-webkit-filter: grayscale(50%);
+		}
+
+		&:hover {
+			& > div {
+				opacity: 1;
+				-webkit-filter: grayscale(0%);
+			}
+		}
+	}
+}

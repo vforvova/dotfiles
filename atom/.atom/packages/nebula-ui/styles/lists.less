@@ -1,0 +1,166 @@
+// Nebula UI / Lists
+// -----------------
+// Used in different places, like the Tree View, Commmand Palette etc.
+// Overrides: atom/static/lists.less
+
+// List Group
+
+.list-group {
+	li {
+		letter-spacing: 0.3px;
+		padding-left: @component-padding/2;
+		&.selected {
+			color: @text-color-selected;
+			background-color: @background-color-selected;
+			&:before {
+				display: none;
+			}
+			.character-match {
+				color: lighten(@blue, 14%);
+				text-shadow: 0 0 10px @blue;
+			}
+		}
+	}
+}
+
+// List Tree -------------------
+
+.list-group,
+.list-tree {
+	color: lighten(@text-color-subtle, 10%);
+	atom-workspace[theme-nebula-ui-focusmode=enabled] & {
+		color: @text-color-subtle;
+	}
+
+	li {
+		.name {
+			padding-right: 17px;
+		}
+		.transition();
+	}
+
+	// Colors the status of files
+	.generate-list-item-text-color(@class) {
+		li:not(.list-nested-item).text-@{class},
+	    li.list-nested-item.text-@{class} > .list-item {
+	      .text(@class);
+	    }
+	}
+	.generate-list-item-text-color(subtle);
+	.generate-list-item-text-color(info);
+	.generate-list-item-text-color(success);
+	.generate-list-item-text-color(warning);
+	.generate-list-item-text-color(error);
+	.generate-list-item-text-color(selected);
+
+	.selected {
+		color: @text-color-selected;
+	}
+}
+
+// Select List -------------------
+.select-list {
+	li {
+		padding: @component-padding/2 @component-padding;
+		color: lighten(desaturate(@base-background-color, 10%), 40%);
+		border-radius: 2px;
+		.transition(color, background-color, opacity, text-shadow;);
+
+		.secondary-line {
+			opacity: 0.4;
+			.transition(color, opacity;);
+		}
+	}
+
+	.status {
+		float: right;
+	}
+
+	// Popover List -------------------
+	// Used as a popover for something like autocomplete.
+	&.popover-list {
+		@popover-list-padding: @component-padding/2;
+		padding: @popover-list-padding;
+		border-radius: @component-border-radius;
+		background-color: @overlay-background-color;
+		// box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+		box-shadow: 0 15px 50px hsla(0, 0, 0, 0.2);
+
+		// The explanation of the suggested snippet/value, usually with a link
+		.suggestion-description {
+			color: @text-color-selected;
+			// background: none !important;
+			opacity: 0.4;
+			font-weight: 300;
+			.transition(opacity);
+		}
+		&:hover {
+			.suggestion-description {
+				opacity: 1;
+			}
+		}
+
+		.list-group {
+			margin-top: @popover-list-padding;
+
+			li {
+				padding-left: @popover-list-padding;
+			}
+		}
+	}
+
+	ol.list-group {
+		li {
+			color: @text-color-subtle;
+			&.two-lines {
+				.secondary-line {
+					color: @text-color-subtle;
+				}
+				&.selected {
+					.secondary-line {
+						color: lighten(@text-color-subtle, 40%);
+					}
+				}
+			}
+			.character-match {
+				color: @text-color-subtle;
+				text-shadow: 0 0 10px transparent;
+				font-weight: inherit;
+				.transition(color, text-shadow;);
+			}
+			&.selected {
+				color: @text-color-selected;
+				background-color: @background-color-selected;
+				.character-match {
+					color: lighten(@blue, 22%);
+					text-shadow: 0 0 10px fade(@blue, 50%);
+				}
+			}
+		}
+
+		&.mark-active {
+			@active-icon-size: 14px;
+			li {
+				&:before {
+					content: '';
+					background-color: transparent;
+					position: static;
+					display: inline-block;
+					left: auto;
+					right: auto;
+					margin-right: 7px;
+					height: @active-icon-size;
+					width: @active-icon-size;
+					font-size: @active-icon-size;
+				}
+				&.active {
+					.octicon(check, @active-icon-size);
+
+					&:before {
+						color: @text-color-info;
+					}
+				}
+			}
+		}
+	}
+}

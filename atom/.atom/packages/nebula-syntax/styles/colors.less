@@ -1,0 +1,44 @@
+// Nebula UI / COLORS
+// An Atom theme that's out of this world.
+//
+// Copyright (c) 2017 TJ Kohli / tjkohli.com
+// -----------------------------------------
+
+// NEUTRALS / Background & text colors
+// -----------------------------------
+
+// active text
+@very-light-gray:	lighten(desaturate(@dark-gray, 10%), 75%);
+
+// main text
+@light-gray: 		lighten(desaturate(@dark-gray, 10%), 30%);
+
+// disabled text
+@subtle-gray: 		lighten(desaturate(@dark-gray, 10%), 15%);
+
+// medium gray
+@gray: 				lighten(@dark-gray, 7%);
+
+// base gray
+@dark-gray: 		hsl(218,19%,14%);
+
+// dark base
+@very-dark-gray: 	darken(@dark-gray, 2%);
+
+
+// BRIGHTS / Accent & code colors
+// ------------------------------
+
+@red: 			#F04180;
+@orange: 		#F5CD73;
+@light-orange: 	lighten(@orange, 10%);
+@green: 		#AAED37;
+@cyan: 			#23DEC5;
+@blue: 			#7AC3FF;
+@purple: 		#B57EED;
+
+// copied from UI theme, for redundancy
+@background-color-info:    @blue;
+@background-color-success: darken(@green, 22%);
+@background-color-warning: darken(@orange, 22%);
+@background-color-error:   hsl(346,100%,50%);

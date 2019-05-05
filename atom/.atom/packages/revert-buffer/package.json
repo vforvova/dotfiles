@@ -1,0 +1,45 @@
+{
+  "_from": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball",
+  "_id": "revert-buffer@0.6.0",
+  "_inBundle": false,
+  "_integrity": "sha512-/c+Kdh5LySt9Pi0V0GmAby7SJEfOdAT2b6u25/w+x/R7jyoaOvtTd7WRT3JWmK7Mwx8ifk5grmJ8ioX0ZmLbcw==",
+  "_location": "/revert-buffer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball",
+  "_shasum": "2bd917ef9bfcc96f541e0237cf28827185cd1bfe",
+  "_spec": "https://www.atom.io/api/packages/revert-buffer/versions/0.6.0/tarball",
+  "_where": "/private/var/folders/hy/nmjqtn4923x59727rxn7vv9w0000gp/T/apm-install-dir-119113-46934-1ygiwl6.jyxa",
+  "bugs": {
+    "url": "https://github.com/atom/revert-buffer/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "fs-plus": "^2",
+    "temp": "0.6.0"
+  },
+  "deprecated": false,
+  "description": "Revert a buffer to its on-disk contents",
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "homepage": "https://github.com/atom/revert-buffer#readme",
+  "license": "MIT",
+  "main": "./lib/revert-buffer",
+  "name": "revert-buffer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atom/revert-buffer.git"
+  },
+  "version": "0.6.0"
+}

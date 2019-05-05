@@ -1,0 +1,118 @@
+// Nebula UI / Settings
+// --------------------
+// Used to style the settings window
+
+.settings-view {
+	font-size: 13px;
+	line-height: 22px;
+	-webkit-font-smoothing: antialiased;
+
+	.link {
+		color: @text-color;
+		text-decoration: none;
+		.transition(color);
+
+		&:hover {
+			color: @blue;
+		}
+	}
+
+	label {
+		font-weight: inherit;
+	}
+
+	.text {
+		color: @text-color-subtle;
+	}
+
+	.section {
+		.section-heading {
+			font-weight: 300;
+			margin-bottom: 10px;
+		}
+	}
+
+	.config-menu {
+		border-right: 0;
+		.nav {
+			> li {
+				> a {
+					.transition(background-color);
+				}
+				&:hover {
+					> a {
+						background-color: fade(@background-color-highlight, 50%);
+					}
+				}
+				&.active {
+					> a {
+						background-color: @background-color-highlight;
+						color: @text-color;
+					}
+				}
+			}
+		}
+	}
+
+	.package-card {
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid @base-border-color;
+		border-radius: 3px 3px 0 0;
+		margin: 10px 0;
+		.transition(background-color, border-color, box-shadow;);
+
+		.package-name {
+			text-decoration: none;
+		}
+
+		.package-version {
+			opacity: 0.5;
+		}
+
+		.package-description {
+			color: @text-color-subtle;
+			.transition(color);
+		}
+
+		.meta-user {
+			.author {
+				text-decoration: none;
+				.transition(color);
+
+				&:hover {
+					color: @blue;
+				}
+			}
+		}
+		&:hover {
+			background-color: @overlay-background-color;
+
+			.package-description {
+				color: @text-color;
+			}
+		}
+		&:active {
+			background-color: @overlay-background-color;
+			box-shadow: inset 0 -250px 50px -50px fade(@blue, 15%);
+			border-color: @blue;
+		}
+		&.disabled {
+			background-color: inherit;
+			box-shadow: inset 0 -50px 50px -50px fade(@orange, 15%);
+			border-color: @orange;
+			&:active {
+				box-shadow: inset 0 -250px 50px -50px fade(@orange, 15%);
+			}
+		}
+	}
+
+	.package-container {
+		.row {
+			margin: 10px 0;
+		}
+	}
+	.section atom-text-editor[mini] {
+		opacity: 1;
+	}
+}

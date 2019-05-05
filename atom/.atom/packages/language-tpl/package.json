@@ -1,0 +1,50 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball",
+  "_id": "language-tpl@0.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-MJf8p3KXFh/vIYRmASqBWWOblZ1NsqKB7BLz53SK5Cjp9Jy//FTwwSJfyOv6ZPwtZVtbboBffNUKDX3rTewaBw==",
+  "_location": "/language-tpl",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball",
+  "_shasum": "ff9cc6a81ccc73349418ec17619213b5ed4d2a94",
+  "_spec": "https://www.atom.io/api/packages/language-tpl/versions/0.3.0/tarball",
+  "_where": "/private/var/folders/hy/nmjqtn4923x59727rxn7vv9w0000gp/T/apm-install-dir-119230-60418-w7fggl.dep0s",
+  "activationCommands": {
+    "atom-workspace": "language-tpl:toggle"
+  },
+  "bugs": {
+    "url": "https://github.com/justijndepover/language-tpl/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A proprietary markup language used in tpl documents",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/justijndepover/language-tpl#readme",
+  "keywords": [
+    "syntax",
+    "highlighting",
+    "grammar"
+  ],
+  "license": "MIT",
+  "main": "./lib/language-tpl",
+  "name": "language-tpl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justijndepover/language-tpl.git"
+  },
+  "version": "0.3.0"
+}

@@ -1,0 +1,68 @@
+// Nebula UI / Tree View
+// ---------------------
+// Used to explore and open files in the current project.
+// If you want to tree view, go to a park.
+
+.list-tree {
+	background: none;
+
+	&.tree-view-root {
+		padding-top: 10px;
+		padding-bottom: 40px;
+		will-change: opacity, -webkit-filter;
+		.transition(opacity, -webkit-filter;);
+
+		atom-workspace[theme-nebula-ui-focusmode=enabled] & {
+			-webkit-filter: grayscale(50%);
+			opacity: 0.6;
+			&:hover {
+				-webkit-filter: grayscale(0%);
+				opacity: 1;
+			}
+		}
+	}
+
+	.entry {
+		cursor: pointer;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	.list-item {
+		border-radius: @component-border-radius;
+
+		&:hover {
+			background-color: @background-color-highlight;
+		}
+	}
+	// shifts the expander arrow a bit away from the edge
+	&.has-collapsable-children {
+		.list-nested-item {
+			// expanded tree items
+			> .list-item {
+				&:before {
+					left: 2px;
+					margin: 0 3px 0 2px;
+					text-align: center;
+					// override the icon
+					content: "\f078";
+					// rotates it to simulate a different icon
+					transform: rotate(90deg);
+					transition: transform 0.2s ease;
+					transform-origin: center;
+				}
+			}
+			// collapsed tree items
+			&.collapsed {
+				> .list-item {
+					&:before {
+						left: 2px;
+						transform: rotate(0);
+					}
+				}
+			}
+		}
+	}
+}
