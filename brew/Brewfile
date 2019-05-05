@@ -1,0 +1,92 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Fish completion for brew-cask
+brew "brew-cask-completion"
+# Cross-platform make
+brew "cmake"
+# Tool for service discovery, monitoring and configuration
+brew "consul"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Go dependency management tool
+brew "dep"
+# Good-lookin' diffs with diff-highlight and more
+brew "diff-so-fancy"
+# Docker Machine driver for hyperkit
+brew "docker-machine-driver-hyperkit"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# Go programming environment (1.10)
+brew "go@1.10"
+# Image processing tools collection
+brew "graphicsmagick"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Improved top (interactive process viewer)
+brew "htop"
+# Add GitHub support to git on the command-line
+brew "hub"
+# Toolkit for embedding hypervisor capabilities in your application
+brew "hyperkit"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick@6"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# Tools for observing Kubernetes resources in realtime
+brew "kubespy"
+# High-performance, schema-free, document-oriented database
+brew "mongodb"
+# Node version management
+brew "n"
+# Manage compile and link flags for libraries
+brew "pkg-config"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Password generator
+brew "pwgen"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# User interface to the TELNET protocol (built from macOS Sierra sources)
+brew "telnet"
+# Terraform version manager inspired by rbenv
+brew "tfenv"
+# Simplified and community-driven man pages
+brew "tldr"
+# Terminal multiplexer
+brew "tmux"
+# Secures, stores, and tightly controls access to secrets
+brew "vault"
+# Vi 'workalike' with many additional features
+brew "vim"
+cask "alacritty"
+cask "alfred"
+cask "atom"
+cask "blender"
+cask "docker"
+cask "font-fira-code"
+cask "google-chrome"
+cask "google-cloud-sdk"
+cask "kitty"
+cask "kubernetic"
+cask "minikube"
+cask "oni"
+cask "phoenix"
+cask "slack"
+cask "telegram"
+cask "transmission"
+cask "tunnelblick"
