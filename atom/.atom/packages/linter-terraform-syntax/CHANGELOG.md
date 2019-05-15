@@ -1,3 +1,9 @@
+### 1.3.0
+- Remove specific check for `terraform init` prerequisite.
+- Establish 0.11 as minimum version of Terraform.
+- Fix check on linting nonexistent files.
+- Improve required variable check disable.
+
 ### 1.2.6
 - Added option to set global var files for all projects.
 - Added option to set local var files for each project.

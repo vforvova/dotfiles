@@ -6,9 +6,9 @@
 `Linter-Terraform-Syntax` aims to provide functional and robust `terraform validate` and `plan` linting functionality within Atom.
 
 ### Installation
-`Terraform` is required to be installed before using this. The `Linter` and `Language-Terraform` Atom packages are also required.
+`Terraform >= 0.11` is required to be installed before using this (use 1.2.6 if using Terraform < 0.10). The `Linter` and `Language-Terraform` Atom packages are also required.
 
-**Notice**: The next version of this package (1.3.0) will require Terraform >= 0.11. Do not upgrade past 1.2.6 if you are using Terraform < 0.11.
+**Config Note**: Ignore Unset Variables has changed to Check Required Variables. If you checked the previous config setting, you will need to uncheck this new one.
 
 ### Usage
 - In the package settings there is an option to use `terraform plan` instead of `terraform validate`. Both options will show syntax errors for files in the current directory and notify non-syntax validation errors for the current directory. The plan option will additionally notify non-syntax plan errors for the current directory, but it will take longer to execute. As of Terraform version 0.10, `terraform validate` now catches many more issues that it previously missed and `terraform plan` found.

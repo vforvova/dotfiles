@@ -30,12 +30,11 @@
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
-      "one-light-syntax"
+      "one-dark-ui"
+      "nebula-syntax"
     ]
     titleBar: "hidden"
-  "cuttlesoft-syntax":
-    style: "Light"
+  "cuttlesoft-syntax": {}
   "dark-mode":
     autoMode: false
     darkProfile: "nebula-ui nebula-syntax"

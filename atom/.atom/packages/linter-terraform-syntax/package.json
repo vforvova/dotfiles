@@ -1,25 +1,25 @@
 {
-  "_from": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball",
-  "_id": "linter-terraform-syntax@1.2.6",
+  "_from": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball",
+  "_id": "linter-terraform-syntax@1.3.0",
   "_inBundle": false,
-  "_integrity": "sha512-HiMPrJk2DRyinneypHUAXVf3QGqNchrMdjEVVNErvEp9T0ohWdwN3/TIif1PzxULyGBcppgoR4USa6RVlB7bSA==",
+  "_integrity": "sha512-Bo4ec1Ind7cp3Ln/FJxa8d41RQqmj0Ysfoixr14Qy+Dc158N5FBYC+w2FF6FgM4MjgOoirD1EWynRtbb/lECCg==",
   "_location": "/linter-terraform-syntax",
   "_phantomChildren": {},
   "_requested": {
     "type": "remote",
-    "raw": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball",
-    "rawSpec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball",
-    "saveSpec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball",
-    "fetchSpec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball"
+    "raw": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball",
-  "_shasum": "e773eea19946c4f951e12ebea86ba048ef18b55d",
-  "_spec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.2.6/tarball",
-  "_where": "/private/var/folders/hy/nmjqtn4923x59727rxn7vv9w0000gp/T/apm-install-dir-119112-34283-1g9lpd.r3crb",
+  "_resolved": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball",
+  "_shasum": "1121fa0873d3312b45435c32846b1778e34fde3c",
+  "_spec": "https://www.atom.io/api/packages/linter-terraform-syntax/versions/1.3.0/tarball",
+  "_where": "/private/var/folders/hy/nmjqtn4923x59727rxn7vv9w0000gp/T/apm-install-dir-119415-42765-w9p3g0.svymk",
   "bugs": {
     "url": "https://github.com/mschuchard/linter-terraform-syntax/issues"
   },
@@ -73,5 +73,5 @@
   "scripts": {
     "test": "atom --test spec"
   },
-  "version": "1.2.6"
+  "version": "1.3.0"
 }

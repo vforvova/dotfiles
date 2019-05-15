@@ -45,12 +45,29 @@ export default {
         type: 'string'
       }
     },
-    ignoreUnsetVar: {
-      title: 'Ignore Unset Variable Error',
+    checkRequiredVar: {
+      title: 'Check Required Variables',
       type: 'boolean',
-      description: 'Ignore the "required variable not set" error (useful if primarily developing/declaring modules).',
-      default: false
+      description: 'Check whether all required variables have been specified (unchecking is useful if primarily developing/declaring modules; only works with validate).',
+      default: true
     }
+  },
+
+  // activate linter
+  activate() {
+    const helpers = require("atom-linter");
+
+    // check for terraform >= minimum version
+    helpers.exec(atom.config.get('linter-terraform-syntax.terraformExecutablePath'), ['destroy', '--help']).then(output => {
+      if (!(/-auto-approve/.exec(output))) {
+        atom.notifications.addError(
+          'The terraform installed in your path is unsupported.',
+          {
+            detail: "Please upgrade your version of terraform to >= 0.11 or downgrade this package to 1.2.6.\n"
+          }
+        );
+      }
+    });
   },
 
   provideLinter() {
@@ -63,7 +80,30 @@ export default {
         // establish const vars
         const helpers = require('atom-linter');
         const file = process.platform === 'win32' ? activeEditor.getPath().replace(/\\/g, '/') : activeEditor.getPath();
-        var dir = require('path').dirname(file);
+        // try to get file path and handle errors appropriately
+        try {
+          var dir = require('path').dirname(file);
+        }
+        catch(error) {
+          // notify on stdin error
+          if (/\.dirname/.exec(error.message) != null) {
+            atom.notifications.addError(
+              'Terraform cannot lint on stdin due to nonexistent pathing on directories. Please save this config to your filesystem.',
+              {
+                detail: 'Save this config.'
+              }
+            );
+          }
+          // notify on other errors
+          else {
+            atom.notifications.addError(
+              'An error occurred with this package.',
+              {
+                detail: error.message
+              }
+            );
+          };
+        }
 
         // bail out if this is on the blacklist
         if (atom.config.get('linter-terraform-syntax.blacklist') !== '') {
@@ -75,21 +115,21 @@ export default {
         //atom.workspace.getTextEditors().forEach(function(textEditor) is not iterating over an array for some reason (either empty array from getTextEditors or forEach lambda is wrong probably)
         // bail out if another file is already open from the current directory
         // this prevents displaying the same issues for the same directory multiple times
-        //atom.workspace.getTextEditors().forEach(function(textEditor) {
-          //const other_file = process.platform === 'win32' ? textEditor.getPath().replace(/\\/g, '/') : textEditor.getPath();
-          //const other_dir = require('path').dirname(other_file);
-          //return [{
-            //severity: 'info',
-            //excerpt: other_dir,
-            //location: {
-              //file: dir,
-              //position: [[0, 0], [0, 1]],
-            //},
-          //}]
-          //if (dir == other_dir)
-            //return [];
+        /*atom.workspace.getTextEditors().forEach(function(textEditor) {
+          const other_file = process.platform === 'win32' ? textEditor.getPath().replace(/\\/g, '/') : textEditor.getPath();
+          const other_dir = require('path').dirname(other_file);
+          return [{
+            severity: 'info',
+            excerpt: other_dir,
+            location: {
+              file: dir,
+              position: [[0, 0], [0, 1]],
+            },
+          }]
+          if (dir == other_dir)
+            return [];
           // of course, this also prevents displaying new errors if another file from the same directory is open, so block off for now
-        //});
+        });*/
 
         // regexps for matching syntax errors on output
         const regex_syntax = /Error.*\/(.*\.tf):\sAt\s(\d+):(\d+):\s(.*)/;
@@ -101,7 +141,7 @@ export default {
 
         // establish args
         var args = atom.config.get('linter-terraform-syntax.useTerraformPlan') ? ['plan'] : ['validate'];
-        args.push('-no-color')
+        args.push('-no-color');
 
         // add global var files
         if (atom.config.get('linter-terraform-syntax.globalVarFiles')[0] != '')
@@ -112,6 +152,10 @@ export default {
         if (atom.config.get('linter-terraform-syntax.localVarFiles')[0] != '')
           for (i = 0; i < atom.config.get('linter-terraform-syntax.localVarFiles').length; i++)
             args = args.concat(['-var-file', atom.config.get('linter-terraform-syntax.localVarFiles')[i]]);
+
+        // do not check if required variables are specified if desired
+        if (!(atom.config.get('linter-terraform-syntax.checkRequiredVar')) && !(atom.config.get('linter-terraform-syntax.useTerraformPlan')))
+          args.push('-check-variables=false')
 
         // execute terraform fmt if selected
         if (atom.config.get('linter-terraform-syntax.useTerraformFormat'))
@@ -169,23 +213,9 @@ export default {
                 // i would love to improve this later, especially so it could be above the conditionals
                 dir = dir + ' '
 
-              // ignore required variable not set error if requested
-              if (!((atom.config.get('linter-terraform-syntax.ignoreUnsetVar')) && (/equired variable not set/.exec(matches)))) {
-                toReturn.push({
-                  severity: 'error',
-                  excerpt: 'Non-syntax error in directory: ' + matches + '.',
-                  location: {
-                    file: dir,
-                    position: [[0, 0], [0, 1]],
-                  },
-                });
-              }
-            }
-            // check if terraform init should be executed
-            else if (matches_init != null) {
               toReturn.push({
                 severity: 'error',
-                excerpt: 'An error is resulting from an issue that can be identified/remedied by executing `terraform init` in this directory.',
+                excerpt: 'Non-syntax error in directory: ' + matches + '.',
                 location: {
                   file: dir,
                   position: [[0, 0], [0, 1]],
@@ -193,20 +223,6 @@ export default {
               });
             }
           });
-          return toReturn;
-        })
-        .catch(error => {
-          // check for stdin lint attempt
-          if (/\.dirname/.exec(error.message) != null) {
-            toReturn.push({
-              severity: 'info',
-              excerpt: 'Terraform cannot lint on stdin due to nonexistent pathing on directories. Please save this config to your filesystem.',
-              location: {
-                file: 'Save this config.',
-                position: [[0, 0], [0, 1]],
-              },
-            });
-          }
           return toReturn;
         });
       }
