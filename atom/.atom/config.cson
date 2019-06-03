@@ -1,4 +1,10 @@
 "*":
+  "activate-power-mode":
+    playAudio:
+      enabled: true
+    plugins:
+      playAudio: true
+      screenShake: true
   "atom-ide-ui":
     "atom-ide-code-format":
       formatOnSave: true
@@ -11,6 +17,8 @@
     useSnippets: true
   "autocomplete-paths":
     enableHtmlSupport: true
+    maxFileCount: 10000
+    normalizeSlashes: false
   "city-lights-ui":
     fontSize: 12
     showTabsInTreeView: true
@@ -30,8 +38,8 @@
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "nebula-syntax"
+      "one-light-ui"
+      "soft-era-syntax"
     ]
     titleBar: "hidden"
   "cuttlesoft-syntax": {}

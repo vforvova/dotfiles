@@ -49,7 +49,13 @@ export default {
       title: 'Check Required Variables',
       type: 'boolean',
       description: 'Check whether all required variables have been specified (unchecking is useful if primarily developing/declaring modules; only works with validate).',
-      default: true
+      default: true,
+    },
+    newVersion: {
+      title: 'Terraform >= 0.12 Support Beta',
+      type: 'boolean',
+      description: 'Your installed version of Terraform is >= 0.12 (feature in beta).',
+      default: false,
     }
   },
 
@@ -63,11 +69,25 @@ export default {
         atom.notifications.addError(
           'The terraform installed in your path is unsupported.',
           {
-            detail: "Please upgrade your version of terraform to >= 0.11 or downgrade this package to 1.2.6.\n"
+            detail: "Please upgrade your version of Terraform to >= 0.11 or downgrade this package to 1.2.6.\n"
           }
         );
       }
     });
+
+    // if terraform >= 0.12 was selected, validate this is true
+    if (atom.config.get('linter-terraform-syntax.newVersion')) {
+      helpers.exec(atom.config.get('linter-terraform-syntax.terraformExecutablePath'), ['validate', '--help']).then(output => {
+        if (!(/-json/.exec(output))) {
+          atom.notifications.addError(
+            'Terraform >= 0.12 selected but not installed.',
+            {
+              detail: "Please upgrade your version of Terraform to >= 0.12 or unselect the Terraform >= 0.12 support config setting.\n"
+            }
+          );
+        }
+      });
+    }
   },
 
   provideLinter() {
@@ -143,86 +163,140 @@ export default {
         var args = atom.config.get('linter-terraform-syntax.useTerraformPlan') ? ['plan'] : ['validate'];
         args.push('-no-color');
 
-        // add global var files
-        if (atom.config.get('linter-terraform-syntax.globalVarFiles')[0] != '')
-          for (i = 0; i < atom.config.get('linter-terraform-syntax.globalVarFiles').length; i++)
-            args = args.concat(['-var-file', atom.config.get('linter-terraform-syntax.globalVarFiles')[i]]);
+        // initialize options with normal defaults
+        var options = { cwd: dir, stream: 'stderr', allowEmptyStderr: true }
 
-        // add local var files
-        if (atom.config.get('linter-terraform-syntax.localVarFiles')[0] != '')
-          for (i = 0; i < atom.config.get('linter-terraform-syntax.localVarFiles').length; i++)
-            args = args.concat(['-var-file', atom.config.get('linter-terraform-syntax.localVarFiles')[i]]);
+        // json output for validate if >= 0.12
+        if (!(atom.config.get('linter-terraform-syntax.useTerraformPlan')) && atom.config.get('linter-terraform-syntax.newVersion')) {
+          args.push('-json')
+          // stdout for json output so also have to ignore exit code
+          options = { cwd: dir, ignoreExitCode: true }
+        }
+        // var inputs are only valid for other than >= 0.12 validate
+        else {
+          // add global var files
+          if (atom.config.get('linter-terraform-syntax.globalVarFiles')[0] != '')
+            for (i = 0; i < atom.config.get('linter-terraform-syntax.globalVarFiles').length; i++)
+              args = args.concat(['-var-file', atom.config.get('linter-terraform-syntax.globalVarFiles')[i]]);
 
-        // do not check if required variables are specified if desired
-        if (!(atom.config.get('linter-terraform-syntax.checkRequiredVar')) && !(atom.config.get('linter-terraform-syntax.useTerraformPlan')))
-          args.push('-check-variables=false')
+          // add local var files
+          if (atom.config.get('linter-terraform-syntax.localVarFiles')[0] != '')
+            for (i = 0; i < atom.config.get('linter-terraform-syntax.localVarFiles').length; i++)
+              args = args.concat(['-var-file', atom.config.get('linter-terraform-syntax.localVarFiles')[i]]);
+
+          // do not check if required variables are specified if desired
+          if (!(atom.config.get('linter-terraform-syntax.checkRequiredVar')) && !(atom.config.get('linter-terraform-syntax.useTerraformPlan')))
+            args.push('-check-variables=false')
+        }
 
         // execute terraform fmt if selected
         if (atom.config.get('linter-terraform-syntax.useTerraformFormat'))
           helpers.exec(atom.config.get('linter-terraform-syntax.terraformExecutablePath'), ['fmt', '-list=false', dir])
 
-        return helpers.exec(atom.config.get('linter-terraform-syntax.terraformExecutablePath'), args, {cwd: dir, stream: 'stderr', allowEmptyStderr: true}).then(output => {
+        return helpers.exec(atom.config.get('linter-terraform-syntax.terraformExecutablePath'), args, options).then(output => {
           var toReturn = [];
-          output.split(/\r?\n/).forEach(function (line) {
-            if (process.platform === 'win32')
-              line = line.replace(/\\/g, '/')
 
-            // matchers for output parsing and capturing
-            const matches_syntax = regex_syntax.exec(line);
-            const matches_new_syntax = new_regex_syntax.exec(line);
-            const matches_alt_syntax = alt_regex_syntax.exec(line);
-            const matches_dir = dir_error.exec(line);
-            const matches_new_dir = new_dir_error.exec(line);
-            // ensure useless block info is not captured and displayed
-            const matches_block = /occurred/.exec(line);
-            // recognize and display when terraform init would be more helpful
-            const matches_init = /error satisfying plugin requirements|terraform init/.exec(line)
+          // new terraform validate will be doing JSON parsing
+          if (!(atom.config.get('linter-terraform-syntax.useTerraformPlan')) && atom.config.get('linter-terraform-syntax.newVersion')) {
+            info = JSON.parse(output)
 
-            // check for syntax errors in directory
-            if (matches_syntax != null) {
-              toReturn.push({
-                severity: 'error',
-                excerpt: matches_syntax[4],
-                location: {
-                  file: dir + '/' + matches_syntax[1],
-                  position: [[Number.parseInt(matches_syntax[2]) - 1, Number.parseInt(matches_syntax[3]) - 1], [Number.parseInt(matches_syntax[2]) - 1, Number.parseInt(matches_syntax[3])]],
-                },
+            // command is reporting an issue
+            if (info.valid == false) {
+              info.diagnostics.forEach(function (issue) {
+                // if no range information given we have to improvise
+                var file = dir;
+                var line_start = 0;
+                var line_end = 0;
+                var col_start = 0;
+                var col_end = 1;
+
+                // we have range information so use it
+                if (issue.range != null) {
+                  file = issue.range.filename;
+                  line_start = issue.range.start.line - 1;
+                  line_end = issue.range.start.column - 1;
+                  col_start = issue.range.end.line - 1;
+                  col_end = issue.range.end.column;
+                }
+                // otherwise check if we need to fix dir display
+                else if (atom.project.relativizePath(file)[0] == dir)
+                  file = dir + ' '
+
+                toReturn.push({
+                  severity: issue.severity,
+                  excerpt: issue.summary,
+                  description: issue.detail,
+                  location: {
+                    file: file,
+                    position: [[line_start, line_end], [col_start, col_end]],
+                  },
+                });
               });
             }
-            // check for new or alternate format syntax errors in directory (alt first since new also captures alt but botches formatting)
-            else if ((matches_alt_syntax != null) || (matches_new_syntax != null)) {
-              matches = matches_alt_syntax == null ? matches_new_syntax : matches_alt_syntax;
+          }
+          // everything else proceeds as normal
+          else {
+            output.split(/\r?\n/).forEach(function (line) {
+              if (process.platform === 'win32')
+                line = line.replace(/\\/g, '/')
 
-              toReturn.push({
-                severity: 'error',
-                excerpt: matches[2] + matches[5],
-                location: {
-                  file: dir + '/' + matches[1],
-                  position: [[Number.parseInt(matches[3]) - 1, Number.parseInt(matches[4]) - 1], [Number.parseInt(matches[3]) - 1, Number.parseInt(matches[4])]],
-                },
-              });
-            }
-            // check for non-syntax errors in directory and account for changes in newer format
-            else if ((matches_dir != null || matches_new_dir != null) && matches_block == null) {
-              matches = matches_dir == null ? matches_new_dir[1] : matches_dir[1]
+              // matchers for output parsing and capturing
+              const matches_syntax = regex_syntax.exec(line);
+              const matches_new_syntax = new_regex_syntax.exec(line);
+              const matches_alt_syntax = alt_regex_syntax.exec(line);
+              const matches_dir = dir_error.exec(line);
+              const matches_new_dir = new_dir_error.exec(line);
+              // ensure useless block info is not captured and displayed
+              const matches_block = /occurred/.exec(line);
+              // recognize and display when terraform init would be more helpful
+              const matches_init = /error satisfying plugin requirements|terraform init/.exec(line)
 
-              // dir will be relative after linter processes it, so if dir being linted is the root of the project path, then it will be empty on display
-              // https://atom.io/docs/api/v1.9.4/Project#instance-relativizePath
-              // check if the path to the project dir containing the file is the same as the dir containing the file, meaning the file is in the root dir of the project if true
-              if (atom.project.relativizePath(file)[0] == dir)
-                // i would love to improve this later, especially so it could be above the conditionals
-                dir = dir + ' '
+              // check for syntax errors in directory
+              if (matches_syntax != null) {
+                toReturn.push({
+                  severity: 'error',
+                  excerpt: matches_syntax[4],
+                  location: {
+                    file: dir + '/' + matches_syntax[1],
+                    position: [[Number.parseInt(matches_syntax[2]) - 1, Number.parseInt(matches_syntax[3]) - 1], [Number.parseInt(matches_syntax[2]) - 1, Number.parseInt(matches_syntax[3])]],
+                  },
+                });
+              }
+              // check for new or alternate format syntax errors in directory (alt first since new also captures alt but botches formatting)
+              else if ((matches_alt_syntax != null) || (matches_new_syntax != null)) {
+                matches = matches_alt_syntax == null ? matches_new_syntax : matches_alt_syntax;
 
-              toReturn.push({
-                severity: 'error',
-                excerpt: 'Non-syntax error in directory: ' + matches + '.',
-                location: {
-                  file: dir,
-                  position: [[0, 0], [0, 1]],
-                },
-              });
-            }
-          });
+                toReturn.push({
+                  severity: 'error',
+                  excerpt: matches[2] + matches[5],
+                  location: {
+                    file: dir + '/' + matches[1],
+                    position: [[Number.parseInt(matches[3]) - 1, Number.parseInt(matches[4]) - 1], [Number.parseInt(matches[3]) - 1, Number.parseInt(matches[4])]],
+                  },
+                });
+              }
+              // check for non-syntax errors in directory and account for changes in newer format
+              else if ((matches_dir != null || matches_new_dir != null) && matches_block == null) {
+                matches = matches_dir == null ? matches_new_dir[1] : matches_dir[1]
+
+                // dir will be relative after linter processes it, so if dir being linted is the root of the project path, then it will be empty on display
+                // https://atom.io/docs/api/v1.9.4/Project#instance-relativizePath
+                // check if the path to the project dir containing the file is the same as the dir containing the file, meaning the file is in the root dir of the project if true
+                if (atom.project.relativizePath(file)[0] == dir)
+                  // i would love to improve this later, especially so it could be above the conditionals
+                  dir = dir + ' '
+
+                toReturn.push({
+                  severity: 'error',
+                  excerpt: 'Non-syntax error in directory: ' + matches + '.',
+                  location: {
+                    file: dir,
+                    position: [[0, 0], [0, 1]],
+                  },
+                });
+              }
+            });
+          }
           return toReturn;
         });
       }

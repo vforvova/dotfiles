@@ -1,3 +1,6 @@
+### 1.3.1
+- Add Beta support for Terraform >= 0.12.
+
 ### 1.3.0
 - Remove specific check for `terraform init` prerequisite.
 - Establish 0.11 as minimum version of Terraform.
