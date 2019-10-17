@@ -23,6 +23,7 @@ end
 
 # Golang
 if type -q go
+  set -x GO111MODULE on
   set -x GOPATH $HOME/Projects/.go
   add_to_path $GOPATH/bin
   add_to_path /usr/local/opt/go/libexec/bin

@@ -1,6 +1,6 @@
 Phoenix.set({
   daemon: true,
-  openAtLogin: true
+  openAtLogin: true,
 });
 
 let testMode = false;
@@ -29,6 +29,27 @@ function setFrame(x, y, width, height, window = Window.focused()) {
   });
 }
 
+function windowToSetupEntry(window) {
+  const app = window.app().name();
+  const topLeft = window.topLeft();
+  const size = window.size();
+  return {
+    [app]: {
+      x: topLeft.x,
+      y: topLeft.y,
+      height: size.height,
+      width: size.width,
+    },
+  };
+}
+
+function handleSetupChange(window) {
+  const setup = Storage.get('setup');
+  const entry = windowToSetupEntry(window);
+  const newSetup = Array.isArray(setup) ? setup.concat(entry) : [entry];
+  Storage.set('setup', newSetup);
+}
+
 
 Key.on('w', [CMD, CTRL], () => {
   Phoenix.log('ctrl+shift+w');
@@ -46,4 +67,9 @@ Key.on('w', [CMD, CTRL], () => {
   ];
 
   setTimeout(() => { positioning.forEach(Key.off) }, 500);
+});
+
+const windowOpened = new Event('windowDidOpen', (window) => {
+  Phoenix.log(`${window.app().name()} opened`);
+  // handleSetupChange(window);
 });
