@@ -31,6 +31,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'sickill/vim-monokai'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
