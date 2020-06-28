@@ -37,9 +37,12 @@ Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'Valloric/YouCompleteMe'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhinz/vim-signify'
 
 call plug#end()
-
 
 "
 " Basic configuration
@@ -58,6 +61,9 @@ set modifiable
 set smartindent
 set autoindent
 
+" Organize swapfiles
+set directory^=$HOME/.vim/tmp//
+
 " Switch between buffers without saving
 set hidden
 
@@ -72,6 +78,18 @@ set foldenable
 
 " Show ruler
 set ruler
+
+" Tab size
+set tabstop=2
+set shiftwidth=2
+
+" Tab to spaces
+set expandtab
+
+" Folding
+set foldmethod=indent
+set foldcolumn=1
+set foldlevelstart=99
 
 " Source the .vimrc after saving it
 if has("autocmd")
@@ -97,6 +115,15 @@ map <leader>pt :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "
+" Completion
+"
+
+"
+" TabNine
+"
+set rtp+=~/tabnine-vim
+
+"
 " Go
 "
 let g:go_fmt_command = "goimports"
@@ -109,3 +136,4 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
+

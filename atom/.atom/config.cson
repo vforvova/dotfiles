@@ -9,15 +9,17 @@
     "atom-ide-code-format":
       formatOnSave: true
     "atom-ide-diagnostics-ui":
+      autoVisibility: true
       showDirectoryColumn: true
     use:
       "atom-ide-terminal": "never"
   "atom-material-ui":
     colors:
-      abaseColor: "#2196f3"
+      abaseColor: "#80deea"
+      accentColor: "#528c94"
       genAccent: true
       paintCursor: true
-      predefinedColor: "Blue"
+      predefinedColor: "Cyan"
     tabs:
       compactTabs: true
       stretchedTabs: true
@@ -59,8 +61,8 @@
     projectHome: "/Users/vladimirs/Projects"
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
-      "one-light-syntax"
+      "atom-material-ui"
+      "monokai-neo-syntax"
     ]
     titleBar: "hidden"
     useTreeSitterParsers: false

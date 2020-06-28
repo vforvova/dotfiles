@@ -27,8 +27,6 @@ brew "fish"
 brew "fzf"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# Go programming environment (1.10)
-brew "go@1.10"
 # Image processing tools collection
 brew "graphicsmagick"
 # Graph visualization software from AT&T and Bell Labs
@@ -47,8 +45,6 @@ brew "jq"
 brew "kubectx"
 # Tools for observing Kubernetes resources in realtime
 brew "kubespy"
-# High-performance, schema-free, document-oriented database
-brew "mongodb"
 # Node version management
 brew "n"
 # Manage compile and link flags for libraries
@@ -75,7 +71,6 @@ brew "vault"
 brew "vim"
 cask "alacritty"
 cask "alfred"
-cask "atom"
 cask "blender"
 cask "docker"
 cask "font-fira-code"
