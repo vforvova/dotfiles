@@ -290,7 +290,7 @@ mouse:
     #
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
-    #modifiers: Control|Shift
+    # modifiers: Control|Shift
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -322,7 +322,6 @@ shell:
   program: /usr/local/bin/tmux
   args:
    - -u
-
 # Key bindings
 #
 # Key bindings are specified as a list of objects. Each binding will specify
