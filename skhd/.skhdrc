@@ -68,6 +68,20 @@ focus < z : if test (yabai -m query --windows --window | jq .\"zoom-fullscreen\"
           ; yabai -m window --toggle zoom-fullscreen \
           ; skhd -k escape
 
+# Picture in picture
+focus < cmd - p : yabai -m window --toggle pip \
+                ; yabai -m window --toggle topmost \
+                ; yabai -m window --toggle shadow \
+                ; yabai -m window --toggle sticky \
+                ; if test (yabai -m query --windows --window | jq .sticky) = 1 \
+                ;   yabai -m window --opacity 1.0 \
+                ;   yabai -m window --move rel:-6:6 \
+                ; else \
+                ;   yabai -m window --opacity 0.0 \
+                ;   yabai -m window --toggle float \
+                ; end \
+                ; skhd -k escape
+
 # Rotate a split
 focus < s : yabai -m window --toggle split \
           ; skhd -k escape
