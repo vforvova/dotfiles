@@ -1,10 +1,15 @@
+tap "golangci/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "koekeishiya/formulae"
+tap "yoheimuta/protolint"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Command-line benchmark tool
+brew "bench"
 # Fish completion for brew-cask
 brew "brew-cask-completion"
 # Cross-platform make
@@ -25,39 +30,69 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# Go programming environment (1.10)
+brew "go@1.10"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Image processing tools collection
 brew "graphicsmagick"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# The Kubernetes package manager
+brew "helm"
+# Helm Charts as Code tool
+brew "helmsman"
 # Improved top (interactive process viewer)
 brew "htop"
 # Add GitHub support to git on the command-line
 brew "hub"
 # Toolkit for embedding hypervisor capabilities in your application
-brew "hyperkit"
+brew "hyperkit", link: false
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick@6"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Generic command-line non-JVM Apache Kafka producer and consumer
+brew "kafkacat"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Tools for observing Kubernetes resources in realtime
 brew "kubespy"
+# Run a Kubernetes cluster locally
+brew "minikube", link: false
 # Node version management
 brew "n"
-# Manage compile and link flags for libraries
-brew "pkg-config"
+# Port scanning utility for large networks
+brew "nmap"
+# General purpose programming language in the ML family
+brew "ocaml"
+# The OCaml package manager
+brew "opam"
+# PNG file optimizer
+brew "optipng"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# Go support for Google's protocol buffers
+brew "protoc-gen-go"
+# Your Swiss Army Knife for Protocol Buffers
+brew "prototool"
 # Password generator
 brew "pwgen"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
+# The Rust toolchain installer
+brew "rustup-init"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
-# User interface to the TELNET protocol (built from macOS Sierra sources)
+# User interface to the TELNET protocol
 brew "telnet"
 # Terraform version manager inspired by rbenv
 brew "tfenv"
@@ -69,17 +104,30 @@ brew "tmux"
 brew "vault"
 # Vi 'workalike' with many additional features
 brew "vim"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Fast linters runner for Go.
+brew "golangci/tap/golangci-lint"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
+# Pluggable tool to enforce Protocol Buffer style and conventions
+brew "yoheimuta/protolint/protolint"
 cask "alacritty"
 cask "alfred"
+cask "atom"
 cask "blender"
 cask "docker"
+cask "font-fantasque-sans-mono"
 cask "font-fira-code"
 cask "google-chrome"
 cask "google-cloud-sdk"
+cask "karabiner-elements"
+cask "kite"
 cask "kitty"
 cask "kubernetic"
 cask "minikube"
-cask "phoenix"
 cask "slack"
 cask "telegram"
 cask "transmission"
